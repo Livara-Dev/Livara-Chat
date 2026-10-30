@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="300" viewBox="0 0 1600 300" role="img" aria-labelledby="title desc">
+  <title id="title">Say it. Share it. Make it happen.</title>
+  <desc id="desc">Three abstract line illustrations introduce messages and voice notes, calls and shared screens, and plans with Boards. These are feature illustrations, not interface screenshots.</desc>
+  <defs><linearGradient id="bg"><stop stop-color="#191120"/><stop offset="1" stop-color="#251536"/></linearGradient><linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e3caff"/><stop offset="1" stop-color="#9f6ed1"/></linearGradient></defs>
+  <rect width="1600" height="300" rx="24" fill="url(#bg)"/>
+  <path d="M537 50v200M1065 50v200" stroke="#bea1d7" stroke-opacity=".16"/>
+  <g fill="none" stroke="url(#ink)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M92 76v15M106 64v39M120 52v63M134 69v29M148 45v77M162 60v47M176 72v24"/>
+    <path d="M625 51a35 35 0 0 0 0 70M655 51a35 35 0 0 1 0 70M640 67v38M680 38a63 63 0 0 1 0 96"/>
+    <circle cx="1154" cy="65" r="17"/><circle cx="1229" cy="65" r="17"/><circle cx="1191" cy="119" r="17"/><path d="m1171 65 41 0M1164 80l17 24M1219 80l-18 24"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g fill="#ac8bc7" font-size="15" letter-spacing="3"><text x="445" y="64">01</text><text x="974" y="64">02</text><text x="1504" y="64">03</text></g>
+    <g fill="#f1e4fa" font-size="38" font-weight="700" letter-spacing="-1"><text x="87" y="192">Say it.</text><text x="615" y="192">Share it.</text><text x="1144" y="192">Make it happen.</text></g>
+    <g fill="#bba7cf" font-size="22"><text x="88" y="239">Messages + voice notes</text><text x="616" y="239">Calls + shared screens</text><text x="1145" y="239">Plans + Boards</text></g>
+  </g>
+</svg>

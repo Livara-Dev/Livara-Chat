@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">Livara Chat — your conversations, your kind of space</title>
+  <desc id="desc">A dark plum editorial cover with lavender typography and interlocking abstract orbits. Livara Chat is available on web and Android Beta, with no phone number required. This is brand artwork, not an application screenshot.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17101f"/><stop offset=".55" stop-color="#1b102c"/><stop offset="1" stop-color="#120d1d"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#8950e8" stop-opacity=".28"/><stop offset=".52" stop-color="#6e31b8" stop-opacity=".13"/><stop offset="1" stop-color="#6e31b8" stop-opacity="0"/></radialGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3ddff"/><stop offset=".28" stop-color="#dcb6ff"/><stop offset=".6" stop-color="#9f6ae8"/><stop offset="1" stop-color="#582d92"/></linearGradient>
+    <linearGradient id="ribbon2" x1="1" y1="0" x2="0" y2="1"><stop stop-color="#efe4ff"/><stop offset=".45" stop-color="#b986ee"/><stop offset="1" stop-color="#6a35b3"/></linearGradient>
+    <linearGradient id="hairline"><stop stop-color="#d5b6f4" stop-opacity=".05"/><stop offset=".5" stop-color="#d5b6f4" stop-opacity=".45"/><stop offset="1" stop-color="#d5b6f4" stop-opacity=".05"/></linearGradient>
+    <clipPath id="frame"><rect width="1600" height="760" rx="28"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1600" height="760" fill="url(#bg)"/>
+    <ellipse cx="1240" cy="354" rx="500" ry="495" fill="url(#halo)"/>
+    <g fill="none" stroke="#bd91ed" stroke-opacity=".10">
+      <circle cx="1250" cy="324" r="217"/><circle cx="1250" cy="324" r="282"/><circle cx="1250" cy="324" r="347"/>
+      <path d="M903 324h694M1250-23v694"/>
+    </g>
+    <g transform="translate(1236 325) rotate(-29)">
+      <ellipse rx="187" ry="112" fill="none" stroke="#0c0714" stroke-opacity=".5" stroke-width="46" transform="translate(0 12)"/>
+      <ellipse rx="187" ry="112" fill="none" stroke="url(#ribbon)" stroke-width="36"/>
+      <ellipse rx="187" ry="112" fill="none" stroke="#ffeaff" stroke-opacity=".55" stroke-width="1.5" transform="translate(0 -16)"/>
+      <ellipse rx="112" ry="187" fill="none" stroke="url(#ribbon2)" stroke-width="36"/>
+      <path d="M-162-56C-130-93-69-112 0-112C73-112 138-87 168-47" fill="none" stroke="url(#ribbon)" stroke-width="36"/>
+      <path d="M-164-72C-130-111-65-128 0-128C77-128 143-102 178-61" fill="none" stroke="#fff1ff" stroke-opacity=".6" stroke-width="1.5"/>
+    </g>
+    <g fill="#dbc0f8"><circle cx="1502" cy="198" r="4"/><circle cx="985" cy="463" r="3"/><circle cx="1268" cy="41" r="3"/></g>
+    <g font-family="Arial, Helvetica, sans-serif">
+      <text x="82" y="84" fill="#dbc2f3" font-size="18" letter-spacing="4">A SPACE FOR YOUR PEOPLE</text>
+      <text x="82" y="243" fill="#f8f0ff" font-size="112" font-weight="700" letter-spacing="-6">Livara Chat</text>
+      <text x="86" y="336" fill="#eadcf7" font-size="49" letter-spacing="-1.6">Your conversations.</text>
+      <text x="86" y="397" fill="#b996df" font-size="49" letter-spacing="-1.6">Your kind of space.</text>
+      <text x="88" y="472" fill="#c7b8d5" font-size="24">Messages, calls and shared plans.</text>
+      <path d="M88 521h58" stroke="#c4a0ec" stroke-width="2"/>
+      <text x="88" y="569" fill="#d4c3e6" font-size="19" letter-spacing="1">WEB + ANDROID BETA</text>
+      <text x="1418" y="581" fill="#a98cc5" font-size="14" text-anchor="end" letter-spacing="3">CONNECTION, IN ORBIT</text>
+      <path d="M82 635h1436" stroke="url(#hairline)"/>
+      <text x="86" y="697" fill="#e1ccef" font-size="20">No phone number required</text>
+      <circle cx="456" cy="689" r="2.5" fill="#84699e"/>
+      <text x="481" y="697" fill="#baabc9" font-size="20">Make it yours</text>
+      <text x="1514" y="697" fill="#d6b7f3" font-size="21" text-anchor="end">livara.org</text>
+    </g>
+    <rect x=".5" y=".5" width="1599" height="759" rx="28" fill="none" stroke="#d5a9ff" stroke-opacity=".14"/>
+  </g>
+</svg>
