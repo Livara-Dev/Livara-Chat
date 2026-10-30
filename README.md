@@ -34,14 +34,68 @@ Your everyday conversations deserve a space that feels like yours. **Livara Chat
 
 [Explore the features](https://livara.org/features) · [Optional AI and plan information](https://livara.org)
 
-## Privacy, with the boundaries in view
+## Encryption architecture · LVR1 + LGS1
 
-According to Livara’s [published security architecture](https://livara.org/security):
+<p align="center"><b>Hybrid post-quantum sessions. End-to-end encrypted conversations.</b><br><sub>ML-KEM-768 · P-256 · AES-256-GCM</sub></p>
 
-- **Direct messages:** LVR1 combines classical and post-quantum key agreement.
-- **Compatible private groups:** LGS1 encrypts compatible private-group content on the sender’s device before upload. Older incompatible groups remain outside E2EE; check the conversation’s protection state.
+![LVR1 hybrid sessions distribute LGS1 sender keys; devices encrypt and decrypt while the relay handles ciphertext and routing metadata.](assets/encryption.svg)
 
-**Know the limits.** Public channels are public. Routing and delivery metadata remain visible to the service. Optional server call recording switches the call to transport encryption, with a visible **REC** state. Device compromise and recipient actions can expose content. [Read the threat model →](https://livara.org/threat-model)
+Based on Livara’s [published security architecture](https://livara.org/security), LVR1 protects direct conversations with **hybrid post-quantum end-to-end encryption (PQ E2EE)**. LGS1 protects compatible private groups with signed sender chains whose keys are distributed through pairwise LVR1 sessions.
+
+### LVR1 · A hybrid session for two devices
+
+LVR1 combines classical and post-quantum key material. Its post-quantum component is designed to resist future quantum decryption of recorded traffic; message encryption itself uses AES-256-GCM.
+
+| Layer | Published design |
+| :--- | :--- |
+| Classical agreement | P-256 ECDH with signed prekeys |
+| Post-quantum agreement | ML-KEM-768, with periodically refreshed epochs |
+| Session establishment | Hybrid X3DH-style establishment; one-time keys when available |
+| Key evolution | Classical double ratchet, independent sending/receiving chains, and a separate ML-KEM epoch root |
+| Message protection | A message key combined with the current PQ root; AES-256-GCM protects content and header |
+| Attachments | A random key for each file, delivered inside the encrypted session |
+
+**From identity to ciphertext:**
+
+1. **Create identity locally.** The device generates its P-256 private key and ML-KEM-768 seed. Neither is uploaded in plaintext.
+2. **Check prekeys.** The client verifies signed P-256 and ML-KEM prekeys and uses one-time keys when available.
+3. **Establish the session.** Several P-256 agreements and ML-KEM shared secrets establish independent classical and post-quantum roots.
+4. **Evolve the keys.** One-way sending and receiving chains advance with messages. Periodic ML-KEM updates refresh the PQ root without repeating the full establishment on every send.
+5. **Seal and deliver.** AES-256-GCM encrypts and authenticates the protected payload. The relay routes ciphertext; the recipient’s device opens it with the corresponding keys.
+
+### LGS1 · Signed sender chains for private groups
+
+Each sender maintains a separate chain instead of encrypting every ordinary group message independently for every recipient.
+
+| Stage | What happens |
+| :--- | :--- |
+| Create | Each member generates a sender chain and a P-256 signing identity on their device |
+| Distribute | Sender keys reach the other members through pairwise, post-quantum LVR1 sessions |
+| Send | Each chain position derives a single-use AES-256-GCM key; the message carries the sender’s signature |
+| Deliver | One encrypted message is distributed to the group |
+| Rotate | Joining or leaving triggers fresh sender keys and redistribution |
+
+**The PQ connection:** LGS1’s group-message cipher is AES-256-GCM; its sender-key distribution inherits the hybrid post-quantum protection of LVR1. The sender signatures described by the site use P-256.
+
+Protected group content includes **text, edits, photos, video, files, voice notes, captions, filenames and attachment keys**. Removing a member does not erase content already received on their device.
+
+<details>
+<summary><b>Key ownership, recovery and identity checks</b></summary>
+
+Private keys originate on user devices. Identity backups are encrypted before upload; restoring them requires the recovery phrase, not just the account password. A restored identity does not restore chat history or ratchet-session state. Compare your contact’s key fingerprint through another trusted channel.
+
+</details>
+
+<details>
+<summary><b>Protection boundaries</b></summary>
+
+New encrypted groups require all members to be ready. Older incompatible groups remain visibly outside E2EE, and missing encryption identity prevents a protected send. Public channels are public. Routing, membership, timestamps, ciphertext size and delivery metadata remain visible to the service; LSS1 is not active in ordinary message sending.
+
+An unlocked or compromised device and recipient actions can expose plaintext. Optional server call recording switches calls to transport encryption with a visible **REC** indicator. Separate AI processing follows the client’s controls and privacy policy.
+
+</details>
+
+[Architecture](https://livara.org/security) · [Threat model](https://livara.org/threat-model) · [Local cryptography demonstrations](https://livara.org/proof)
 
 ## Your first hello
 

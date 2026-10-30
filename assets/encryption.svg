@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="590" viewBox="0 0 1600 590" role="img" aria-labelledby="title desc">
+<title id="title">Livara encryption architecture</title><desc id="desc">LVR1 combines P-256 and ML-KEM-768 for direct sessions. LGS1 distributes group sender keys inside LVR1 and encrypts group messages with AES-256-GCM. The relay handles ciphertext and routing metadata.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#17101f"/><stop offset="1" stop-color="#25143d"/></linearGradient><linearGradient id="accent"><stop stop-color="#d5a8ff"/><stop offset="1" stop-color="#8a63e8"/></linearGradient></defs>
+<rect width="1600" height="590" rx="28" fill="url(#bg)"/><rect x="1" y="1" width="1598" height="588" rx="27" fill="none" stroke="#b58ee4" stroke-opacity=".25"/>
+<g font-family="Arial, Helvetica, sans-serif"><text x="64" y="62" fill="#bca1db" font-size="17" letter-spacing="3">LIVARA / ENCRYPTION ARCHITECTURE</text><text x="64" y="120" fill="#f4e9ff" font-size="40" font-weight="700">Two protocols. One device-to-device boundary.</text>
+<rect x="64" y="156" width="714" height="252" rx="20" fill="#ffffff" fill-opacity=".035" stroke="#ac83db" stroke-opacity=".35"/>
+<text x="94" y="199" fill="#e6c8ff" font-size="27" font-weight="700">LVR1</text><text x="200" y="198" fill="#bfaad4" font-size="18">DIRECT CONVERSATIONS</text>
+<text x="94" y="244" fill="#f4e9ff" font-size="27">P-256 + ML-KEM-768</text><text x="94" y="278" fill="#bea9d2" font-size="19">Hybrid establishment / signed prekeys</text><path d="M95 303h650" stroke="#9772c2" stroke-opacity=".3"/>
+<text x="94" y="337" fill="#dac2f3" font-size="20">Message chains + periodic PQ root refresh</text><text x="94" y="374" fill="#f4e9ff" font-size="22">AES-256-GCM / content + header</text>
+<rect x="822" y="156" width="714" height="252" rx="20" fill="#ffffff" fill-opacity=".035" stroke="#ac83db" stroke-opacity=".35"/>
+<text x="852" y="199" fill="#e6c8ff" font-size="27" font-weight="700">LGS1</text><text x="958" y="198" fill="#bfaad4" font-size="18">COMPATIBLE PRIVATE GROUPS</text>
+<text x="852" y="244" fill="#f4e9ff" font-size="27">Sender keys delivered through LVR1</text><text x="852" y="278" fill="#bea9d2" font-size="19">Per-sender chains / P-256 signatures</text><path d="M853 303h650" stroke="#9772c2" stroke-opacity=".3"/>
+<text x="852" y="337" fill="#dac2f3" font-size="20">Single-use message keys / membership rotation</text><text x="852" y="374" fill="#f4e9ff" font-size="22">AES-256-GCM / one ciphertext per message</text>
+<path d="M327 472h946" stroke="url(#accent)" stroke-width="2"/><path d="m1263 466 10 6-10 6" fill="none" stroke="#a67de8" stroke-width="2"/>
+<rect x="64" y="443" width="282" height="62" rx="16" fill="#352146"/><text x="205" y="482" text-anchor="middle" fill="#eedaff" font-size="22">DEVICE / ENCRYPT</text>
+<rect x="582" y="443" width="436" height="62" rx="16" fill="#352146"/><text x="800" y="482" text-anchor="middle" fill="#eedaff" font-size="22">RELAY / CIPHERTEXT + METADATA</text>
+<rect x="1254" y="443" width="282" height="62" rx="16" fill="#352146"/><text x="1395" y="482" text-anchor="middle" fill="#eedaff" font-size="22">DEVICE / DECRYPT</text>
+<text x="64" y="551" fill="#ad96c5" font-size="18">Message delivery architecture / public channels and separate AI processing have different boundaries.</text></g></svg>
